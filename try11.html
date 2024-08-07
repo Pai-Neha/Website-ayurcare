@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        .bg-image-vertical {
+            position: relative;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: auto 100%;
+        }
+
+        @media (min-width: 1025px) {
+            .h-custom-2 {
+                height: 100%;
+            }
+        }
+
+        /* Add a background color suitable for colorblind users */
+        body {
+            background-color: #f0f0f0; /* You can choose a different color if needed */
+        }
+
+        /* Center the form */
+        .center-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center-form">
+        <form style="width: 23rem;" id="loginForm" style="background-color: white; padding: 20px;">
+            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+            <div class="form-outline mb-4">
+                <input type="text" id="form2Example18" class="form-control form-control-lg" required />
+                <label class="form-label" for="form2Example18">Username</label>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="password" id="form2Example28" class="form-control form-control-lg" required />
+                <label class="form-label" for="form2Example28">Password</label>
+            </div>
+            <div class="pt-1 mb-4">
+                <button class="btn btn-info btn-lg btn-block" type="button" id="loginButton">Login</button>
+            </div>
+            <div id="errorMessage" class="text-danger mb-3"></div>
+            <p>Don't have an account? <a href="registration.html" class="link-info">Register here</a></p>
+        </form>
+    </div>
+
+    <script>
+        // Get the form and button elements
+        const loginForm = document.getElementById("loginForm");
+        const loginButton = document.getElementById("loginButton");
+        const errorMessageContainer = document.getElementById("errorMessage");
+
+        // Add a click event listener to the login button
+        loginButton.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Get the username and password values
+            const username = document.getElementById("form2Example18").value;
+            const password = document.getElementById("form2Example28").value;
+
+            // Validate the username and password
+            if (isValidUsername(username) && isValidPassword(password)) {
+                window.location.href = "hero.html";
+            } else {
+                displayErrorMessage("Invalid username or password. Please try again.");
+            }
+        });
+
+        // Function to validate the username (first letter capitalized)
+        function isValidUsername(username) {
+            return /^[A-Z][a-z]*$/.test(username);
+        }
+
+        // Function to validate the password (at least 8 characters)
+        function isValidPassword(password) {
+            return password.length >= 8;
+        }
+
+        // Function to display error messages
+        function displayErrorMessage(message) {
+            errorMessageContainer.textContent = message;
+        }
+    </script>
+</body>
+
+</html>
+

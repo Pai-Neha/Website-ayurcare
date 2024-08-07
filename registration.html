@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="title">Ayurcare Registration</div>
+    <form action="#" id="registrationForm">
+        <div class="user-details row">
+            <div class="col-lg-6 col-sm-12">
+                <div class="input-box">
+                    <span class="details">Full Name</span>
+                    <input type="text" placeholder="Enter Your Name" required>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="input-box">
+                    <span class="details">User Name</span>
+                    <input type="text" placeholder="Enter Your UserName" required>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="email" placeholder="Enter Your Email" required>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="input-box">
+                    <span class="details">Phone</span>
+                    <input type="tel" placeholder="Enter Your Phone" required pattern="[7-9]{1}[0-9]{9}" title="please enter number that begins [6-9] and must be 10 digits">
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="password" id="password" placeholder="Enter Your Password" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+" 
+                             title="password must contain Atleast one capital,digit and special character">
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="input-box">
+                    <span class="details">Confirm Password</span>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Your Password" required >
+                </div>
+            </div>
+        </div>
+        <div class="button">
+            <input type="submit" id="registerButton" value="Register">
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <div class="signin">
+                    Already have an Account?<a href="try11.html">SignIn</a>.
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("registrationForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+    if (password !== confirmPassword) {
+        alert("Passwords do not match! Please make sure your passwords match.");
+    } else if (this.checkValidity()) {
+        // Form is valid, so perform the redirection
+        window.location.href = "hero.html";
+    } else {
+        alert("Please fill in all required fields correctly.");
+    }
+});
+
+
+        });
+    
+
+
+</script>
+</body>
+</html>

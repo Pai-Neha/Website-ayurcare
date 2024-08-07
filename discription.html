@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color:#D9E4FF;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .btn {
+            margin: 10px;
+            width: 200px;
+            height: 60px;
+            background-color:transparent; 
+            color: black; 
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            transition: color 0.3s, background-color 0.3s; 
+            border:none;
+        }
+
+        .btn:hover {
+            color: black; 
+            background-color: #B3C7F7; 
+        }
+
+        @media (min-width: 100px) {
+            .btn {
+                width: 100%;
+            }
+        }
+
+        .back-arrow {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 19px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .back-arrow:hover {
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="hero.html" class="back-arrow">Home</a>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center">Diagnosis Options</h1>
+                <p class="text-center">Choose the type of diagnosis you want:</p>
+              
+                <div class="text-center">
+                    <a href="general_disease.html" class="btn btn-primary btn-block">General Disease</a>
+                    <a href="skin_disease.html" class ="btn btn-primary btn-block">Skin Disease</a>
+                    <a href="hair_problems.html" class="btn btn-primary btn-block">Hair Problems</a>
+                    <a href="digestive_disease.html" class="btn btn-primary btn-block">Digestive Disease</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

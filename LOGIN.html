@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurcare Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #007BFF, #FFF);
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .bg-primary {
+            background-color: #007BFF;
+            color: white;
+        }
+        
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 10px;
+            }
+            .form-group {
+                width: 100%;
+            }
+        }
+
+        .invalid {
+            border: 1px solid red;
+        }
+        .valid {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-4">
+                <div class="login-container">
+                    <h2 class="text-center">Ayurcare Login</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+                            <p id="username-error" class="text-danger" style="display: none;">Username should begin with a capital letter</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                            <p id="password-error" class="text-danger" style="display: none;">Password should be at least 8 characters with digit, character and special symbols</p>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block bg-primary">Login</button>
+                        <p class="text-center mt-3">Don't have an account? <a href="registration.html">Register here</a></p>
+                        <p class="text-center mt-3">Go directly to <a href="hero.html">Home</a></p>
+                    </form>
+                    <p id="error-message" class="text-center text-danger mt-3" style="display: none;">Incorrect username or password.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-4">
+        <p>&copy; 2023 Ayurcare</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+        const usernameError = document.getElementById("username-error");
+        const passwordError = document.getElementById("password-error");
+        const errorMessage = document.getElementById("error-message");
+
+        usernameInput.addEventListener("input", function() {
+            const usernameValue = this.value;
+            const usernamePattern = /^[A-Z][a-zA-Z]*$/;
+
+            if (usernamePattern.test(usernameValue)) {
+                this.classList.remove("invalid");
+                this.classList.add("valid");
+                usernameError.style.display = "none";
+            } else {
+                this.classList.remove("valid");
+                this.classList.add("invalid");
+                usernameError.style.display = "block";
+            }
+        });
+
+        passwordInput.addEventListener("input", function() {
+            const passwordValue = this.value;
+            const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (passwordPattern.test(passwordValue)) {
+                this.classList.remove("invalid");
+                this.classList.add("valid");
+                passwordError.style.display = "none";
+            } else {
+                this.classList.remove("valid");
+                this.classList.add("invalid");
+                passwordError.style.display = "block";
+            }
+        });
+
+        const loginButton = document.querySelector("button[type=submit]");
+        loginButton.addEventListener("click", function(event) {
+            const usernameValid = usernameInput.classList.contains("valid");
+            const passwordValid = passwordInput.classList.contains("valid");
+            window.location.href = "hero.html";
+            if (!usernameValid || !passwordValid) {
+                event.preventDefault();
+                errorMessage.style.display = "block"; 
+            }
+        });
+    </script>
+</body>
+</html>

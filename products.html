@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+	    width: 75%; /* Adjust the width of the product container */
+	    
+	}
+
+        .product {
+            width: 20%; /* 20px is the margin between products */
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 0 5px #888;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align product content */
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product h2 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .product p {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        .product button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .product button:hover {
+            background-color: #45a049;
+        }
+	
+	#cart {
+	    position: absolute;
+            top: 110px; /* Adjust this value for vertical positioning */
+            right: 10px; /* Adjust this value for horizontal positioning */
+            width: 20%;
+            background-color: #fff;
+            border: 0;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 5px #888;
+        }
+	#cart h2 {
+            text-align: center;
+            color: #333;
+        }
+	
+	
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-total {
+            font-size: 18px;
+            font-weight: bold;
+        } 
+
+	 #notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            /* transform: translateX(-50%); */
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            text-align: center;
+        }
+
+	
+        @media only screen and (max-width: 768px) {
+            .products {
+                flex-direction: column; /* Stack products on smaller screens */
+            }
+
+            .product {
+                width: 100%; /* Full width for products on smaller screens */
+                max-width: 100%; /* Full width for products on smaller screens */
+            }
+	
+	     #cart {
+                position: fixed; /* Remove absolute positioning on smaller screens */
+                max-width: 100%; /* Full width for the cart on smaller screens */
+		top: auto;
+                bottom: 10px; /* Adjust the positioning for smaller screens */
+                right: 10px; /* Keep it on the right side */
+                width: 90%; /* Occupy most of the screen width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Herbal Products</h1>
+    
+	<button id="speakButton" class="btn btn-primary">Read Aloud</button>
+	<button id="contrastButton" class="btn btn-primary">High Contrast</button>
+    <div class="products">
+        <div class="product">
+            <img src="herbal1.jpg" alt="Herbal Moisturizer">
+            <h2>Herbal Moisturizer</h2>
+            <p>Pamper your skin with our herbal moisturizer, enriched with a blend of botanical extracts that deeply hydrate and replenish, revealing a radiant and supple complexion.</p>
+            <p>Price: Rs 120.00</p>
+            <button class="btn btn-success" onclick="addToCart('Herbal Product 1', 120.00)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="herbal2.jpg" alt="Hair Growth Oil">
+            <h2>Hair Growth Oil</h2>
+            <p>Replenish your scalp with our rejuvenating Hair Growth Oil. This magic elixir makes your hair strong, lustrous and healthy while repairing the scalp as well.</p>
+            <p>Price: Rs 150.00</p>
+            <button class="btn btn-success" onclick="addToCart('Herbal Product 2', 150.00)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="herbal3.jpg" alt="Rice Water Shampoo">
+            <h2>Rice Water Shampoo</h2>
+            <p>Splash life into your hair & give it a clean, healthy start every time. It's packed with protein & every essential nutrient to keep your hair looking soft & strong.</p>
+            <p>Price: Rs 120.00</p>
+            <button class="btn btn-success" onclick="addToCart('Herbal Product 3', 120.00)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="herbal4.jpg" alt="Soy Milk Conditioner ">
+            <h2>Soy Milk Conditioner </h2>
+            <p>No doors will ever be open for frizz and tangles with our Soy Milk Conditioner! The protein-rich formula smoothens the hair & keeps split ends at bay!</p>
+            <p>Price: Rs 150.00</p>
+            <button class="btn btn-success" onclick="addToCart('Herbal Product 4', 150.00)">Add to Cart</button>
+        </div>
+        <div class="product">
+        <img src="herbal5.jpg" alt="Ashwagandha powder">
+        <h2>Ashwagandha powder</h2>
+        <p>Ashwagandha powder made from natural, pure & organic Ashwagandha root to improve holistic wellness.It is a natural aphrodisiac that aids in lowering anxiety and mental tension. while igniting the hormones.</p>
+        <p>Price: Rs 120.00</p>
+        <button class="btn btn-success" onclick="addToCart('Herbal Product 5', 120.00)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="herbal6.jpg" alt="Dry Face Wash & Scrub">
+        <h2>Dry Face Wash & Scrub</h2>
+        <p>2 In 1 Dry Face Wash & Scrub with neem & chandan is a mild, award winning, hypoallergenic & exfoliant peel is 100% natural, cleanses, exfoliates, detoxifies & tones while maintaining the natural pH of the skin. </p>
+        <p>Price: Rs 150.00</p>
+        <button class="btn btn-success" onclick="addToCart('Herbal Product 6', 150.00)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="herbal7.jpg" alt="Face Wash Powder">
+        <h2>Face Wash Powder</h2>
+        <p>Elevate your skin herbal face wash. Harnessing the power of herbal extracts to deeply cleanse pores, remove impurities, and leave your skin feeling refreshed and renewedcare routine with our face wash powder.</p>
+        <p>Price: Rs 120.00</p>
+        <button class="btn btn-success" onclick="addToCart('Herbal Product 7', 120.00)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="herbal8.jpg" alt="Multani Mitti Powder">
+        <h2>Multani Mitti Powder</h2>
+        <p>Ayurveda Multani Mitti or Fullers earth has quite a number of benefits and uses for various skin types. The most popular use for skin is as a face pack or mask.This reduces pimples or acne, as well as the marks left.</p>
+        <p>Price: Rs 150.00</p>
+        <button class="btn btn-success" onclick="addToCart('Herbal Product 8', 150.00)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="herbal9.jpg" alt="Hair Mask">
+        <h2>Hair Mask</h2>
+        <p>Indulge your hair with our nourishing herbal hair mask, crafted with a potent
+blend of natural ingredients to deeply condition, repair damage, promote healthy, prevents hair loss, dandruff and premature greying of hair.</p>
+        <p>Price: Rs 120.00</p>
+        <button class="btn btn-success" onclick="addToCart('Herbal Product 9', 120.00)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="herbal10.jpg" alt="Baby Kajal">
+        <h2>Baby Kajal</h2>
+        <p>Tear free baby kajal which is suitable for new borns.Ingredients of this kajal are completely safeIt is dermatologically tested and cleared in an AYUSH-approved laboratory and is also approved as non-irritant to the eyes.</p>
+        <p>Price: Rs 150.00</p>
+        <button class="btn btn-success" onclick="addToCart('Herbal Product 10', 150.00)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="herbal11.jpg" alt="Tulsi Drop">
+        <h2>Tulsi Drop</h2>
+        <p>Enlock the power of tulsi with our tulsi drops, a concentrated herbal extract derived from sacred tulsi leaves.  Known for its numerous health benefits that support immune health reduce stress, and promote overall well-being of you.</p>
+        <p>Price: Rs 120.00</p>
+        <button class="btn btn-success" onclick="addToCart('Herbal Product 11', 120.00)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="herbal12.jpg" alt="Ayurvedic Soap">
+        <h2>Ayurvedic Soap</h2>
+        <p>This unique ancient formula contains potent herbs that leaves the skin soft, glowing and brilliantly polished.A brightening ayurveda face and body soap with this essence reduces pigmentation, and protects the skin.</p>
+        <p>Price: Rs 120.00</p>
+        <button class="btn btn-success" onclick="addToCart('Herbal Product 12', 120.00)">Add to Cart</button>
+    </div>
+    </div>
+	
+	<div id="notification" class="message position-fixed">
+	</div>
+<div id="cart">
+        <h2>Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: Rs <span id="cart-total">0.00</span></p>
+        <button id="purchaseButton" class="btn btn-primary">Purchase</button>
+    </div>
+    <!-- <button id="purchaseButton" class="btn btn-primary">Purchase</button> -->
+
+    
+
+   <script>
+    // Event listener for the "Purchase" button
+    const purchaseButton = document.getElementById('purchaseButton');
+    purchaseButton.addEventListener('click', function () {
+        // Replace 'YOUR_DESIRED_URL' with the URL you want to open
+        window.location.href = 'Cart.html';
+    });
+         
+	const cart = []; // Initialize an empty cart array
+        const cartItemsElement = document.getElementById("cart-items");
+        const cartTotalElement = document.getElementById("cart-total");
+
+        // Function to add items to the cart
+        function addToCart(productName, price) {
+            // Check if the product is already in the cart
+            const existingProduct = cart.find(item => item.name === productName);
+            if (existingProduct) {
+                // If the product exists, increment its quantity
+                existingProduct.quantity++;
+            } else {
+                // If the product is not in the cart, add it with a quantity of 1
+                cart.push({ name: productName, price: price, quantity: 1 });
+            }
+            displayCart();
+            displayNotification("Product added to cart");
+        }
+
+	 // Function to remove an item from the cart
+        function removeFromCart(productName) {
+            const productIndex = cart.findIndex(item => item.name === productName);
+            if (productIndex !== -1) {
+                    cart.splice(productIndex, 1); // Remove the item if the quantity is 0
+		    displayCart();
+                }
+            }
+
+	function updateQuantity(productName, quantity) {
+            // Update the quantity of a product in the cart
+            const product = cart.find(item => item.name === productName);
+            if (product) {
+                product.quantity = quantity;
+                displayCart();
+            }
+        }
+
+            // Display a notification
+	function displayNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = `Product added to cart`;
+            notification.style.display = 'block';
+
+            // Hide the notification after a few seconds
+            setTimeout(function () {
+                notification.style.display = 'none';
+            }, 1000);
+        }
+
+        // Function to display the cart items
+        function displayCart() {
+            cartItemsElement.innerHTML = "";
+            let total = 0;
+
+            cart.forEach((item) => {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - Rs ${item.price.toFixed(2)} x${item.quantity}`;
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Remove";
+                deleteButton.onclick = function () {
+                    removeFromCart(item.name);
+                };
+                const quantityInput = document.createElement("input");
+                quantityInput.type = "number";
+                quantityInput.min = "1";
+                quantityInput.value = item.quantity;
+                quantityInput.onchange = function () {
+                    updateQuantity(item.name, parseInt(quantityInput.value));
+                };
+                li.appendChild(deleteButton);
+                li.appendChild(quantityInput);
+                cartItemsElement.appendChild(li);
+                total += item.price * item.quantity;
+            });
+
+            cartTotalElement.textContent = total.toFixed(2);
+        }
+
+	// Function to read text using speech synthesis
+    function speakText(text) {
+        // Check if the browser supports the SpeechSynthesis API
+        if ('speechSynthesis' in window) {
+            const synthesis = window.speechSynthesis;
+            const utterance = new SpeechSynthesisUtterance(text);
+            
+            // Configure the voice settings if needed
+            // utterance.voice = speechSynthesis.getVoices()[0];
+            
+            synthesis.speak(utterance);
+        } else {
+            alert('Speech synthesis is not supported in your browser.');
+        }
+    }
+
+    // Event listener for the Speak button
+    document.getElementById('speakButton').addEventListener('click', function () {
+        // Get the text to be read from the cart items
+        const cartItems = cart.map(item => `${item.name} - Rs ${item.price.toFixed(2)} x${item.quantity}`).join('. ');
+        if (cartItems) {
+            speakText(`Your cart contains: ${cartItems}. Total: Rs ${cartTotalElement.textContent}`);
+        } else {
+            speakText('Your cart is empty.');
+        }
+    });
+
+// Your existing JavaScript code
+
+        const contrastButton = document.getElementById('contrastButton');
+        let isHighContrast = false;
+
+        // Function to toggle high contrast style
+        function toggleHighContrast() {
+            const body = document.body;
+            if (isHighContrast) {
+                body.style.backgroundColor = '#f5f5f5'; // Restore the original background color
+                // You can reset other styles as needed
+            } else {
+                body.style.backgroundColor = '#000'; // Set a high contrast background color
+                // Adjust other styles for high contrast mode
+            }
+            isHighContrast = !isHighContrast;
+        }
+
+        // Event listener for the contrast button
+        contrastButton.addEventListener('click', toggleHighContrast);
+    </script>
+</body>
+</html>

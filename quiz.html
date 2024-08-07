@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('back.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+background-position: center center;
+        }
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            padding: -10px;
+            margin: 0;
+	    font-weight: bold;
+        }
+        .quiz-container {
+            text-align: center;
+            border: 0;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 0 auto;
+            width: 600px;
+            height: 350px;
+        }
+        .question-set {
+            text-align: left;
+            display: none;
+            padding: 0px;
+        }
+        .question-set.active {
+            display: block;
+        }
+        p {
+            font-weight: bold;
+            font-size: 25px;
+            padding: 10px;
+        }
+        label {
+            font-size: 23px;
+            display: block;
+            margin-top: 5px;
+        }
+        button {
+            display: block;
+            font-size: 20px;
+            margin: 50px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .thank-you-message {
+            display: none;
+            font-size: 28px;
+            padding: 150px;
+        }
+	
+	@media only screen and (max-width: 800px) {
+  	.quiz-container {
+                width: 90%; /* Adjust the width for smaller screens */
+                height: auto;
+                padding: 5px;
+            }
+            h1 {
+                font-size: 30px;
+		text-align:center;
+            }
+            p {
+                font-size: 20px;
+		text-align:center;
+            }
+            label {
+                font-size: 18px;
+		text-align:center;
+            }
+		 button {
+                font-size: 18px; /* Adjust the font size for smaller screens */
+            	text-align:center;
+		}
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <h1>QUIZ</h1>
+    <form id="quizForm">
+        <div class="question-set active">
+            <p>1. How is your built?</p>
+            <label><input type="radio" name="q1" value="a"> Well built, Smooth body</label>
+            <label><input type="radio" name="q1" value="b"> Moderately built, Yellowish</label>
+            <label><input type="radio" name="q1" value="c"> Lean or ruin body, Prominent veins</label>
+        </div>
+        <div class="question-set">
+            <p>2. How would you describe your hair?</p>
+            <label><input type="radio" name="q2" value="a"> Wide, long, more eyelashes</label>
+            <label><input type="radio" name="q2" value="b"> Brown, few eyelashes, becomes red easily by anger, sunlight</label>
+            <label><input type="radio" name="q2" value="c"> Rough, lustreless, round</label>
+        </div>
+	<div class="question-set">
+            <p>3. How would you describe your eyes?</p>
+            <label><input type="radio" name="q3" value="a"> Thick and bluish black</label>
+            <label><input type="radio" name="q3" value="b"> Less hair and brownish</label>
+            <label><input type="radio" name="q3" value="c"> Less hair and rough</label>
+        </div>
+	<div class="question-set">
+            <p>4. Which type of food do you like the most?</p>
+            <label><input type="radio" name="q4" value="a"> Bitter,astringent, spicy, hot, dry food</label>
+            <label><input type="radio" name="q4" value="b"> Sweet,astringent,bitter, cold food</label>
+            <label><input type="radio" name="q4" value="c"> Sweet, sour, salty, hot food</label>
+        </div>
+	<div class="question-set">
+            <p>5. Towards what do you have intolerance?</p>
+            <label><input type="radio" name="q5" value="a"> Intolerance towards sweet, sour taste</label>
+            <label><input type="radio" name="q5" value="b"> Intolerance towards hot things, prefers cold</label>
+            <label><input type="radio" name="q5" value="c"> Intolerance towards dryness like dry weather or dry food</label>
+        </div>
+	<div class="question-set">
+            <p>6. How much does hunger and thirst bother you?</p>
+            <label><input type="radio" name="q6" value="a"> Not much</label>
+            <label><input type="radio" name="q6" value="b"> Excellent thirst and hunger</label>
+            <label><input type="radio" name="q6" value="c"> Like to have light food</label>
+        </div>
+	<div class="question-set">
+            <p>7. How is your speech, talk and anger?</p>
+            <label><input type="radio" name="q7" value="a"> Less speech and less anger</label>
+            <label><input type="radio" name="q7" value="b"> Clear speech and more anger</label>
+            <label><input type="radio" name="q7" value="c"> Talkative and speaks irrelevantly</label>
+        </div>
+	<div class="question-set">
+            <p>8. Usually what do you see in your dreams?</p>
+            <label><input type="radio" name="q8" value="a"> Water reservoirs full of water, lotus, birds, clouds</label>
+            <label><input type="radio" name="q8" value="b"> Flowers which are red in color, forest fire, lightening, meteroids</label>
+            <label><input type="radio" name="q8" value="c"> As if you are moving in sky, running in mountain, dwelling on trees</label>
+        </div>
+	<div class="question-set">
+            <p>9. How is your memory and knowledge?</p>
+            <label><input type="radio" name="q9" value="a"> Slow understanding, intelligent</label>
+            <label><input type="radio" name="q9" value="b"> Intelligent, defeats others in talk, brilliant, clever</label>
+            <label><input type="radio" name="q9" value="c"> Quick in understanding, forgets things easily, unsteady memory</label>
+        </div>
+	<div class="question-set">
+            <p>10. How would you describe your nature?</p>
+            <label><input type="radio" name="q10" value="a"> Dullness in action and initiation with less activities, obedient to teachers and elders, forgives easily</label>
+            <label><input type="radio" name="q10" value="b"> Brave and proud, console to who are obedient to you, affectionate to be dependent</label>
+            <label><input type="radio" name="q10" value="c"> Quick in initiating actions, get irritated easily, quick in likes and dislikes</label>
+        </div>
+        
+       <button id="nextButton" class="btn btn-primary">Next</button>
+        <button id="submitButton" style="display: none;" type="submit">Submit</button>
+    </form>
+    <div class="thank-you-message" id="thankYouMessage">Thank you for completing the quiz!</div>
+<button id="speakButton" class="btn btn-primary">Speak</button>
+</div>
+<script>
+    let currentQuestion = 0;
+    const questionSets = document.querySelectorAll('.question-set');
+    const nextButton = document.getElementById("nextButton");
+    const submitButton = document.getElementById("submitButton");
+    const speakButton = document.getElementById("speakButton");
+
+    function nextQuestion() {
+        if (currentQuestion < questionSets.length - 1) {
+            questionSets[currentQuestion].classList.remove('active');
+            currentQuestion++;
+            questionSets[currentQuestion].classList.add('active');
+            if (currentQuestion === questionSets.length - 1) {
+                nextButton.style.display = "none";
+                submitButton.style.display = "block";
+            }
+        }
+    }
+
+    nextButton.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent form submission
+        nextQuestion();
+    });
+
+    submitButton.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent form submission
+        if (currentQuestion === questionSets.length - 1) {
+            // Hide the form and show the thank you message
+            document.getElementById("quizForm").style.display = "none";
+            document.getElementById("thankYouMessage").style.display = "block";
+        }
+    });
+
+speakButton.addEventListener('click', function () {
+        const contentToRead = document.body.innerText; // Read the entire page content
+        const speechSynthesis = window.speechSynthesis;
+        const speechUtterance = new SpeechSynthesisUtterance(contentToRead);
+
+        speechSynthesis.speak(speechUtterance);
+    });
+	
+    </script>
+</body>
+</html>

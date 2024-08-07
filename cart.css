@@ -1,0 +1,42 @@
+
+body
+{
+    display: flex;
+    justify-self: center;
+}.container
+{
+    background-color: #fff;
+    margin-top: 30px;
+    width: 900px;
+    box-shadow: 0px 0px 15px 10px rgb(235, 225, 173);
+    padding: 50px;
+    border-radius: 30px;
+    text-align: center;
+}
+div label{
+    display: flex;
+    justify-content: left;
+}
+p
+{
+    display: flex;
+    justify-content: left;
+}
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 80%; /* Adjust the width for tablets */
+    }
+}
+
+/* Media Query for Mobile Phones (up to 767px) */
+@media screen and (max-width: 767px) {
+    body {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+    }
+
+    .container {
+        width: 90%; /* Adjust the width for mobile */
+        margin-top: 15px; /* Reduce top margin for mobile */
+        padding: 20px; /* Reduce padding for mobile */
+    }
+}

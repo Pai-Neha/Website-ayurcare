@@ -1,0 +1,154 @@
+/* Importing the font and general styling */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* Setting a common font for the entire page */
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Styling for the body background image and layout */
+body {
+    margin: 0;
+    background-image: url("backgroundbmi.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Styling for the main container */
+.container {
+    background-color: #fff;
+    margin-top: 10px;
+    width: 600px;
+    box-shadow: 0px 0px 20px 10px rgb(234, 88, 156);
+    padding: 50px;
+    border-radius: 30px;
+    text-align: center;
+    position: relative;
+}
+
+/* Styling for the heading */
+h1 {
+    margin-left: 30px;
+    font-size:40px;
+    margin-top: -50px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* Styling for paragraphs */
+p {
+    text-align: left;
+    margin-left: -5px;
+    margin-top: 20px;
+  
+}
+
+/* Styling for the input elements */
+.input-container {
+    position: relative;
+}
+
+input {
+    border: 0;
+    border-bottom: 1px solid #0044ff;
+    width: 30%;
+    display: flex;
+    justify-content: left;
+    margin-left: -5px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    outline: none;
+    padding: 10px;
+    font-size: 23px;
+}
+
+/* Styling for the button with Bootstrap classes */
+button {
+    width: 80%;
+    height: 35px;
+    margin-top: 25px;
+    border-radius:25px;
+    border: none;
+    background-color: #0044ff;
+    color: #fff;
+    font-size: 22px;
+}
+
+/* Styling for the result container */
+#result {
+    margin-top: 40px;
+    font-size: 18px;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    margin-right: 30px;
+    margin-left: 220px;
+    margin-bottom: -20px;
+    text-align: justify;
+    border: 2px solid white;
+    box-shadow: 0px 0px 20px 10px rgb(238, 237, 236);
+    background-color: lavenderblush;
+}
+
+/* Custom error and noerror classes */
+.error {
+    color: red;
+}
+
+.noerror {
+    color: black;
+}
+
+/* Responsive styling for small screens */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px; /* Adjusted padding for tablets */
+    }
+    input {
+        font-size: 18px; /* Adjusted font size for tablets */
+    }
+    /* Additional tablet-specific styles can be added here */
+    #result
+    {
+        font-size: 15px;
+        margin-bottom:20px;
+        margin-left: 220px;
+    }
+}
+
+/* Responsive styling for mobile devices */
+@media screen and ( max-width: 600px) {
+    .container {
+        width:400px;
+        padding: 10px; /* Adjusted padding for mobile devices */
+    }
+    h1 {
+        font-size: 24px; /* Adjusted font size for mobile devices */
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    input {
+        font-size: 16px; /* Adjusted font size for mobile devices */
+    }
+    
+    #result
+    {
+        font-size: 12px;
+        margin-bottom:20px;
+        margin-left: 150px;
+        margin-top: -5px;
+    }
+    #btn
+    {
+        width: 60%;
+        margin-bottom: 10px;
+    }
+}

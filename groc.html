@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clinic Compas</title>
+    <link rel="stylesheet" type="text/css" href="groc.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+  />
+  <script>
+    let speechUtterance = null;
+  
+    // Function to read the entire webpage content 
+    function readAloud() {
+      const speechSynthesis = window.speechSynthesis;
+      const boxes = document.querySelectorAll('.box');
+      let fullText = '';
+  
+      // Iterate through all .box elements and concatenate their text
+      boxes.forEach((box) => {
+        fullText += box.innerText + ' ';
+      });
+  
+      // Cancel the previous speech synthesis, if any
+      if (speechUtterance) {
+        speechSynthesis.cancel();
+      }
+  
+      speechUtterance = new SpeechSynthesisUtterance(fullText);
+  
+      // Optional settings for the voice and rate
+      speechUtterance.voice = speechSynthesis.getVoices()[0];
+      speechUtterance.rate = 1;
+  
+      speechSynthesis.speak(speechUtterance);
+    }
+  </script>
+
+</head>
+<body>
+<!-- navigation section -->
+    <header class="header">
+
+        <a href="#" class="logo"><i class="fas fa-shopping-baseket"></i>AyurCare</a>
+
+        <nav class="navbar">
+            <a href="hero.html">home</a>
+            <a href="#products">features</a>
+            <a href="products.html">products</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="#" onclick="readAloud()">Read Aloud</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+        </div>
+
+        <form action="" class="search-form">
+            <input type="search" class="search-box" placeholder="search here..">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+    </header>
+
+
+<!-- find your clinic -->
+        <section class="home">
+            <div class="content">
+                <h3>Find Your <span>Nearest</span> Clinic's</h3>
+                <p>Find all your nearby ayurvedic centers at one place. </p>
+                <!-- <a href="#" class="btn">Find Now</a> -->
+            </div>
+        </section>
+
+<!-- Adding the clinics -->
+
+<section class="products" id="products">
+    <h1 class="heading">Nearby <span>Clinic's</span></h1>
+    <div class="box-container">
+        <div class="box">'
+            <a href="https://www.google.com/maps/place/Hitayu+Ayurveda+Centre/@13.3472945,74.7678183,17z/data=!3m1!4b1!4m6!3m5!1s0x3bbcbb5a11220419:0x1607e4c1222199c1!8m2!3d13.3472945!4d74.7678183!16s%2Fg%2F11bw3d1zzy?entry=ttu" target="_blank">
+            <img src="images/hitayu.jpg" alt="hitayu clinic">
+            <h3>Hitauyu Ayurveda Clinic</h3>
+            <div class="price">Opens @ 9.30 am</div>
+            <div class="stars">Kunjibettu,Udupi</div></a>
+
+        </div>
+        <div class="box">
+            <a href="https://www.google.com/maps/place/SDM+Ayurveda+Hospital,Kuthpady,Udupi/@13.3130114,74.7357812,17z/data=!4m7!3m6!1s0x3bbcbb072e4f9d2b:0x9986416679874135!8m2!3d13.3130114!4d74.7357812!10e5!16s%2Fg%2F11fxvdxhr_?entry=ttu" target="_blank">
+            <img src="images/sdm.jpg" alt="hitayu clinic">
+            <h3>SDM Ayurveda Hospital</h3>
+            <div class="price">Opens 24 hours</div>
+            <div class="stars">Udyavar,Udupi</div></a>
+        </div>
+        
+        <div class="box">
+            <a href="https://www.google.com/maps/place/AKSHARA+AYURVEDA+CLINIC/@13.3345778,74.7432414,17z/data=!3m1!4b1!4m6!3m5!1s0x3bbcbb51dcdf9769:0xe7bc9ce0f5e9c1bf!8m2!3d13.3345778!4d74.7432414!16s%2Fg%2F11hz9lc7wg?entry=ttu" target="_blank">
+            <img src="images/akshara.jpg" alt="hitayu clinic">
+            <h3>Akshara Ayurveda Clinic</h3>
+            <div class="price">Opens @ 9.30 am</div>
+            <div class="stars">Ajjarkadu,Udupi</div></a>
+
+        </div>
+        <div class="box">
+            <a href="https://www.google.com/maps/place/Himalaya+Ayurvedic+Treatment+Center,+Udupi./@13.3454775,74.1963091,9z/data=!4m10!1m2!2m1!1shimalaya+ayurveda+clinic!3m6!1s0x3bbcbbb50a1186ff:0x78a0ba387ffc8009!8m2!3d13.3454775!4d74.7566118!15sChhoaW1hbGF5YSBheXVydmVkYSBjbGluaWMiA4gBAVoaIhhoaW1hbGF5YSBheXVydmVkYSBjbGluaWOSASFhbHRlcm5hdGl2ZV9tZWRpY2luZV9wcmFjdGl0aW9uZXKaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVTlBOMUF5Y2sxUkVBReABAA!16s%2Fg%2F11s_tyy5ml?entry=ttu" target="_blank">
+            <img src="images/himalaya.jpg" alt="hitayu clinic">
+            <h3>Himalaya Ayurveda Treatment Center</h3>
+            <div class="price">Opens @ 9.30 am</div>
+            <div class="stars">Kadiyali,Udupi</div></a>
+        </div>
+
+        <div class="box">
+            <a href="https://www.google.com/maps/place/Sri+Raksha+Ayurveda+Clinic/@13.3340236,74.7489667,17z/data=!3m1!4b1!4m6!3m5!1s0x3bbcbb6c48c929d5:0x9879ebdd3c4e5fd3!8m2!3d13.3340236!4d74.7489667!16s%2Fg%2F11c7s_6yf4?entry=ttu" target="_blank">
+            <img src="images/raksha.jpg" alt="hitayu clinic">
+            <h3>Sri Raksha Ayurvedic Clinic</h3>
+            <div class="price">Opens @ 10.00 am</div>
+            <div class="stars">Chitpady,Udupi</div></a>
+
+        </div>
+        <div class="box">
+            <a href="https://www.google.com/maps/place/Muniyal+Ayurveda+Hospital/@13.335339,74.7180142,12z/data=!4m10!1m2!2m1!1sMuniyal+Ayurveda+Hospital!3m6!1s0x3bbca4b65f09dac1:0xf7ed8078795e8711!8m2!3d13.335339!4d74.788052!15sChlNdW5peWFsIEF5dXJ2ZWRhIEhvc3BpdGFsWhsiGW11bml5YWwgYXl1cnZlZGEgaG9zcGl0YWySASFhbHRlcm5hdGl2ZV9tZWRpY2luZV9wcmFjdGl0aW9uZXKaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTmpORGd5WTNWUlJSQULgAQA!16s%2Fg%2F11r8wyxcw?entry=ttu" target="_blank">
+            <img src="images/muniyal.jpg" alt="hitayu clinic">
+            <h3>Muniyal Ayurveda Hospital</h3>
+            <div class="price">Opens 24 hours</div>
+            <div class="stars">Manipal,Udupi</div></a>
+
+        </div>
+        <div class="box">
+            <a href="https://www.google.com/maps/place/Dhanvantari+Ayurveda+Hospital,+Centre+for+Remedy+and+Research/@13.335339,74.7180142,12z/data=!4m10!1m2!2m1!1sDhanavantari+Ayurveda+Hospital!3m6!1s0x3bbcbd9429ce8ea1:0x9a1814eb47fde91e!8m2!3d13.3613908!4d74.7682111!15sCh5EaGFuYXZhbnRhcmkgQXl1cnZlZGEgSG9zcGl0YWxaICIeZGhhbmF2YW50YXJpIGF5dXJ2ZWRhIGhvc3BpdGFskgEQcHJpdmF0ZV9ob3NwaXRhbJoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSdFgyRlRPRFJCUlJBQuABAA!16s%2Fg%2F11h_vw02g2?entry=ttu" target="_blank">
+            <img src="images/dhan.jpg" alt="hitayu clinic">
+            <h3>Dhanavantari Ayurveda Hospital</h3>
+            <div class="price">Opens @ 9.30 am</div>
+            <div class="stars">Doddangudde,Udupi</div></a>
+
+        </div>
+        <div class="box">
+            <a href="https://www.google.com/maps/place/Padma+Ayurveda+Clinic/@13.3368329,74.7352272,17z/data=!3m1!4b1!4m6!3m5!1s0x3bbcbb6d7a84309b:0xea600dd9701e4204!8m2!3d13.3368329!4d74.7352272!16s%2Fg%2F1tf2qp6y?entry=ttu" target="_blank">
+            <img src="images/padma.jpg" alt="hitayu clinic">
+            <h3>Padma Ayurveda Clinic</h3>
+            <div class="price">Opens @ 12.00 pm</div>
+            <div class="stars">Amabalpadi,Udupi</div></a>
+        </div>
+        <!-- <div class="box">
+            <a href="https://www.google.com/maps/place/AYURDHARA,+Ayurveda+Panchakarma+Chikitsalaya/@13.4866848,74.7243971,11z/data=!4m10!1m2!2m1!1sAyurdhara+Ayurveda+Clinic!3m6!1s0x3bbcbb5d8b2d0145:0xfe30b1f26bd8f95c!8m2!3d13.3460754!4d74.7572783!15sChlBeXVyZGhhcmEgQXl1cnZlZGEgQ2xpbmljkgEhYWx0ZXJuYXRpdmVfbWVkaWNpbmVfcHJhY3RpdGlvbmVy4AEA!16s%2Fg%2F12hrmwsw6?entry=ttu" target="_blank">
+            <img src="images/ayurdhara.jpg" alt="hitayu clinic">
+            <h3>Ayurdhara Ayurveda Clinic</h3>
+            <div class="price">Opens @ 7.00 am</div>
+            <div class="stars">Kadiyali,Udupi</div></a>
+        </div> -->
+
+        
+    </div>
+    
+</section>
+
+
+
+
+        <script src="script_gc.js"></script>
+        
+</body>
+</html>

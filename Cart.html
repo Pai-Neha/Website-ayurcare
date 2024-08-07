@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Information</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Shipping Information</h1>
+    <p style="color:red;">All fields must be filled*</p>
+    <p>Enter Valid Data </p>
+    <form id="shipping-form">
+        <!-- Name Field -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" maxlength="15" onblur="validateField(this, 'erroreleName')" required>
+            <p id="erroreleName"></p>
+        </div>
+        <!-- Address Field -->
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea class="form-control" id="address" name="address" required></textarea>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" class="form-control" id="phone" name="phone" oninput="validatePhoneNumber(this, 'errorelePhone')" required>
+            <p id="errorelePhone"></p>
+        </div>
+        <!-- City Field -->
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" class="form-control" id="city" name="city" onblur="validateField(this, 'erroreleCity')" required>
+            <p id="erroreleCity"></p>
+        </div>
+        <!-- Country Field -->
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" class="form-control" id="country" name="country" onblur="validateField(this, 'erroreleCountry')" required>
+            <p id="erroreleCountry"></p>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Modal for "Order has been placed" -->
+<div class="modal fade" id="orderPlacedModal" tabindex="-1" role="dialog" aria-labelledby="orderPlacedModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderPlacedModalLabel">Order Placed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Your order has been successfully placed.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function validateField(field, errorElementId) {
+        var errorele = document.getElementById(errorElementId);
+        var x = field.value;
+
+        if (/^[A-Z][a-zA-Z]{2,}$/.test(x)) {
+            errorele.innerHTML = "Valid";
+            errorele.style.color="green";
+        } else {
+            errorele.innerHTML = "Please enter a valid data (Ex:Ana).";
+            errorele.style.color="red";
+        }
+
+        enableSubmitButton(); // Enable or disable the submit button based on form validity
+    }
+
+    function validatePhoneNumber(field, errorElementId) {
+        var errorele = document.getElementById(errorElementId);
+        var x = field.value;
+        var y = /^\d{10}$/; // Matches a 10-digit phone number
+
+        if (x.match(y)) {
+            errorele.innerHTML = "Valid";
+            errorele.style.color="green";
+        } else {
+            errorele.innerHTML = "Please enter a valid 10-digit phone number.";
+            errorele.style.color="red";
+        }
+
+        enableSubmitButton();
+    }
+
+    function enableSubmitButton() {
+        var isValid = isFormValid();
+        var submitButton = document.querySelector("button[type='submit']");
+        submitButton.disabled = !isValid;
+    }
+
+    function isFormValid() {
+    var formData = $('#shipping-form').serializeArray();
+    var isValid = formData.every(item => item.value) &&
+        /^[A-Z][a-zA-Z]{2,}$/.test($('#name').val()) &&
+        /^[A-Z][a-zA-Z]{2,}$/.test($('#city').val()) &&
+        /^[a-zA-Z\s]+$/.test($('#country').val()) &&
+        /^\d{10}$/.test($('#phone').val());
+    return isValid;
+}
+
+
+    // JavaScript to handle form submission
+    $(document).ready(function () {
+        $('#shipping-form').submit(function (e) {
+            e.preventDefault();
+
+            if (isFormValid()) {
+                // Show the "Order has been placed" modal
+                $('#orderPlacedModal').modal('show');
+            } else {
+                alert("Please fill in all the required fields and ensure they are valid.");
+            }
+        });
+    });
+</script>
+</body>
+</html>
